@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= csrf_meta_tags %>
     <title>PizzaCom</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -11,6 +12,11 @@
   </head>
 
   <body>
+    <%= form_with(model: @restaurant_pizza, local: true) do |form| %>
+      <%= form.hidden_field :authenticity_token, value: form_authenticity_token %>
+      <!-- form fields -->
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>

@@ -1,4 +1,6 @@
 class RestaurantPizzasController < ApplicationController
+  protect_from_forgery with: :exception
+
   def create
     restaurant_pizza = RestaurantPizza.new(restaurant_pizza_params)
     if restaurant_pizza.save
